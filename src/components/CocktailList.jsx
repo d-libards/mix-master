@@ -19,7 +19,7 @@ function CocktailList({ drinks }) {
       glass: strGlass,
     };
   });
-  console.log(formattedDrinks);
+
   return (
     <Wrapper>
       {formattedDrinks.map((drink) => {

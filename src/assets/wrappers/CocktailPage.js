@@ -8,31 +8,41 @@ const Wrapper = styled.div`
       margin-bottom: 1rem;
     }
   }
+
   .img {
     border-radius: var(--borderRadius);
+    max-width: 400px;
+    margin: 0 auto;
   }
+
   .drink-info {
     padding-top: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
   }
+
   .drink p {
     font-weight: 700;
-    text-transform: capitalize;
     line-height: 2;
     margin-bottom: 1rem;
   }
+
   .drink-data {
     margin-right: 0.5rem;
     background: var(--primary-300);
     padding: 0.25rem 0.5rem;
     border-radius: var(--borderRadius);
+    text-transform: capitalize;
     color: var(--primary-700);
     letter-spacing: var(--letterSpacing);
   }
+
   .ing {
     display: inline-block;
     margin-right: 0.5rem;
   }
-  @media (min-width: 992px) {
+
+  @media (min-width: 892px) {
     .drink {
       display: grid;
       grid-template-columns: 2fr 3fr;
@@ -40,7 +50,8 @@ const Wrapper = styled.div`
       align-items: center;
     }
     .drink-info {
-      padding-top: 0;
+      padding-top: 0rem;
+      max-width: none;
     }
   }
 `;
