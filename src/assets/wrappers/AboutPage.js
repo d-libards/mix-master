@@ -5,6 +5,7 @@ const Wrapper = styled.div`
     line-height: 2;
     color: var(--grey-500);
     margin-top: 2rem;
+    text-align: justify;
   }
 `;
 
