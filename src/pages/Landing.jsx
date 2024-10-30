@@ -1,5 +1,8 @@
 import { useLoaderData } from 'react-router-dom';
 import customFetch from '../axios/customFetch';
+import CocktailCard from '../components/CocktailCard';
+import CocktailList from '../components/CocktailList';
+import SearchForm from '../components/SearchForm';
 
 const cocktailSearchUrl = '/search.php?s=';
 
@@ -11,7 +14,10 @@ export async function loader() {
 
 function Landing() {
   const { drinks, searchTerm } = useLoaderData();
-  console.log(drinks);
-  return <div>Landing</div>;
+  return (
+    <>
+      <CocktailList drinks={drinks} />
+    </>
+  );
 }
 export default Landing;
