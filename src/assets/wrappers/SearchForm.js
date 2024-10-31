@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr auto;
   }
+
   .form-input {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;

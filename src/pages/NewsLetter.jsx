@@ -1,4 +1,4 @@
-import { Form, redirect, useNavigate, useNavigation } from 'react-router-dom';
+import { Form, redirect, useNavigation } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter';
