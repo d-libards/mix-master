@@ -1,7 +1,8 @@
-import { useLoaderData, Link, Navigate } from 'react-router-dom';
+import { useLoaderData, Link, Navigate, useNavigate } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/CocktailPage';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { useGlobalContext } from '../../context';
 
 const singleCocktailUrl =
   'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
@@ -25,6 +26,8 @@ export const loader =
     return { id };
   };
 function Cocktail() {
+  const { search } = useGlobalContext();
+  const navigate = useNavigate();
   const { id } = useLoaderData();
   const { data } = useQuery(singleCocktailQuery(id));
 
@@ -46,12 +49,27 @@ function Cocktail() {
     )
     .map((key) => singleDrink[key]);
 
+  const handlePreviousSearch = () => {
+    navigate(`/?search=${search}`);
+  };
+
   return (
     <Wrapper>
       <header>
-        <Link to="/" className="btn">
-          back home
-        </Link>
+        <div className="btn-container">
+          <Link to="/" className="btn">
+            back home
+          </Link>
+          {search && (
+            <button
+              className="btn"
+              style={{ background: 'var(--grey-500)' }}
+              onClick={handlePreviousSearch}
+            >
+              previous search
+            </button>
+          )}
+        </div>
         <h3>{name}</h3>
       </header>
       <div className="drink">

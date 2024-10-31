@@ -15,6 +15,7 @@ import {
 import { loader as landingLoader } from './pages/Landing';
 import { loader as singleCocktailLoader } from './pages/Cocktail';
 import { action as newsletterAction } from './pages/NewsLetter';
+import { AppProvider } from '../context';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,8 +60,10 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
-      <RouterProvider router={router} />
+      <AppProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <RouterProvider router={router} />
+      </AppProvider>
     </QueryClientProvider>
   );
 };

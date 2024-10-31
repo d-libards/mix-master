@@ -3,6 +3,8 @@ import CocktailList from '../components/CocktailList';
 import SearchForm from '../components/SearchForm';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import { useGlobalContext } from '../../context';
+import { useEffect } from 'react';
 
 const cocktailSearchUrl =
   'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -31,8 +33,13 @@ export const loader =
   };
 
 function Landing() {
+  const { setSearch } = useGlobalContext();
   const { searchTerm } = useLoaderData();
   const { data: drinks } = useQuery(searchCocktailsQuery(searchTerm));
+
+  useEffect(() => {
+    setSearch(searchTerm);
+  }, [searchTerm]);
 
   return (
     <>

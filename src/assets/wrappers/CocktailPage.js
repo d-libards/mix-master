@@ -7,6 +7,12 @@ const Wrapper = styled.div`
     .btn {
       margin-bottom: 1rem;
     }
+    .btn-container {
+      display: flex;
+      gap: 2rem;
+      margin: 0 auto;
+      width: max-content;
+    }
   }
 
   .img {
