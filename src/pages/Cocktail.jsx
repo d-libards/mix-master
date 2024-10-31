@@ -1,12 +1,13 @@
 import { useLoaderData, Link, Navigate } from 'react-router-dom';
-import customFetch from '../axios/customFetch';
 import Wrapper from '../assets/wrappers/CocktailPage';
+import axios from 'axios';
 
-const singleCocktailUrl = '/lookup.php?i=';
+const singleCocktailUrl =
+  'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
 
 export async function loader({ params }) {
   const { id } = params;
-  const { data } = await customFetch.get(`${singleCocktailUrl}${id}`);
+  const { data } = await axios.get(`${singleCocktailUrl}${id}`);
   return { id, data };
 }
 function Cocktail() {

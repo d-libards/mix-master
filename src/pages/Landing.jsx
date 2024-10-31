@@ -1,14 +1,14 @@
 import { useLoaderData } from 'react-router-dom';
-import customFetch from '../axios/customFetch';
-import CocktailCard from '../components/CocktailCard';
 import CocktailList from '../components/CocktailList';
 import SearchForm from '../components/SearchForm';
+import axios from 'axios';
 
-const cocktailSearchUrl = '/search.php?s=';
+const cocktailSearchUrl =
+  'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
 export async function loader() {
   const searchTerm = 'a';
-  const response = await customFetch.get(`${cocktailSearchUrl}${searchTerm}`);
+  const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
   return { drinks: response.data.drinks, searchTerm };
 }
 
