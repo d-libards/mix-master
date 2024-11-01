@@ -31,6 +31,7 @@ const Wrapper = styled.div`
     font-weight: 700;
     line-height: 2;
     margin-bottom: 1rem;
+    text-align: justify;
   }
 
   .drink-data {
